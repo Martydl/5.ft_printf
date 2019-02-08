@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:38:25 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 16:44:49 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/08 16:55:38 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_perct(t_prin *prin)
 		printf("ft_perct\n");
 	if (prin->form[prin->i_form] == '%' && prin->form[prin->i_form + 1] == '%')
 	{
-		prin->output = ft_strjoin_free(prin->output, "%");
+		prin->output = ft_strjoin_free(prin->output, ft_strdup("%"));
 		return (1);
 	}
 	return (0);
