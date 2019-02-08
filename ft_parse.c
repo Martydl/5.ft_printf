@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:38:25 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 14:30:18 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/08 16:44:49 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	ft_counter(t_prin *prin)
 		i++;
 		k = 0;
 	}
+	if (prin->conv == 's')
+		prin->preci = -1;
 	prin->length = i;
 	return (i);
 }

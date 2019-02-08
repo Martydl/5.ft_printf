@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:16:44 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/08 16:27:47 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/08 16:45:18 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ static char	*ft_getstring(t_prin *prin)
 
 	tmp = va_arg(prin->ap, char*);
 	if (prin->preci >= 0)
-	{
 		str = ft_strndup(tmp, prin->preci);
-	}
 	else
 		str = ft_strdup(tmp);
 	return (str);
@@ -46,7 +44,8 @@ static char	*ft_add(t_prin *prin, char *ret)
 void	ft_convs(t_prin *prin)
 {
 	char	*ret;
-printf("ft_convs\n");
+
+	printf("ft_convs\n");
 	ret = ft_getstring(prin);
 	if (prin->field > (int)ft_strlen(ret))
 		ret = ft_add(prin, ret);
