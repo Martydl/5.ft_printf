@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:16:44 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/08 16:45:18 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_convs(t_prin *prin)
 {
 	char	*ret;
 
-	printf("ft_convs\n");
+	//printf("ft_convs\n");
 	ret = ft_getstring(prin);
 	if (prin->field > (int)ft_strlen(ret))
 		ret = ft_add(prin, ret);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 13:09:25 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/07 23:00:54 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void					ft_convx(t_prin *prin)
 {
 	char				*ret;
 	unsigned long long	nb;
-printf("ft_convx\n");
+
+	//printf("ft_convx\n");
 	nb = ft_getnb(prin);
 	if (!(nb == 0 && prin->preci == 0))
 		ret = ft_llutoa_base(nb, 16, 'a');

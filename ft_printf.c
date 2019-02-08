@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:37:46 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 11:59:19 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_printf(const char *format, ...)
 {
-	printf("hello\n");
+	//printf("hello\n");
 	t_prin  *prin;
 
 	if (!(prin = (t_prin *)malloc(sizeof(t_prin))))

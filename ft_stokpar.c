@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 11:45:25 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 14:26:20 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_conflit(t_prin *prin)
 {
-	printf("ft_conflit\n");
+	//printf("ft_conflit\n");
 	if (prin->minus == 1 && prin->zero == 1)
 		prin->zero = 0;
 	else if (prin->zero == 1 && prin->preci != 1 && (prin->conv == 'd' ||
@@ -30,7 +30,7 @@ int		ft_conflit(t_prin *prin)
 
 int		ft_stopar(t_prin *prin)
 {
-	printf("ft_stopar\n");
+	//printf("ft_stopar\n");
 	//if (!ft_length(prin))
 	//	ft_error(1, prin);
 	if (!ft_flags(prin))

@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 15:13:37 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 16:04:56 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_flags(t_prin *prin)
 	int last;
 	int found;
 
-	printf("ft_flags\n");
+	//printf("ft_flags\n");
 	found = 0;
 	i = prin->i_form;
 	last = prin->length;
@@ -113,7 +113,7 @@ int		ft_spac(t_prin *prin)
 	int i;
 	int last;
 
-	printf("ft_spac\n");
+	//printf("ft_spac\n");
 	i = prin->i_form;
 	last = prin->length + i;
 	while (i < last)
@@ -133,7 +133,7 @@ int		ft_hash(t_prin *prin)
 	int i;
 	int	last;
 
-	printf("ft_hash\n");
+	//printf("ft_hash\n");
 	i = prin->i_form;
 	last = prin->length + i;
 	while (i < last)

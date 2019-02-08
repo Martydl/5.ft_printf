@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:38:25 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 16:55:38 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_counter(t_prin *prin)
 	i = prin->i_form;
 	k = 0;
 	converter = "diouxXfcsp";
-	printf("ft_counter\n");
+	//printf("ft_counter\n");
 	while (j == 0 && prin->form[i] != '\0')
 	{
 		while (prin->form[i] != converter[k] && k <= 9)
@@ -44,7 +44,7 @@ int	ft_counter(t_prin *prin)
 
 int	ft_perct(t_prin *prin)
 {
-		printf("ft_perct\n");
+	//printf("ft_perct\n");
 	if (prin->form[prin->i_form] == '%' && prin->form[prin->i_form + 1] == '%')
 	{
 		prin->output = ft_strjoin_free(prin->output, ft_strdup("%"));
@@ -57,7 +57,7 @@ int	ft_check(t_prin *prin)
 {
 	int retu;
 
-	printf("ft_check\n");
+	//printf("ft_check\n");
 	retu = ft_counter(prin);
 	if (ft_perct(prin) == 1)
 		return (2);
@@ -76,7 +76,7 @@ int	ft_parse(t_prin *prin)
 	int		j;
 
 	j = 0;
-	printf("ft_parse\n");
+	//printf("ft_parse\n");
 	prin->output = ft_strnew(0);
 	while (prin->form[prin->i_form] != '\0')
 	{

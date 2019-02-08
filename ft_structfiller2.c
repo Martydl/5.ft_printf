@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 15:13:32 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 15:57:48 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_zero(t_prin *prin)
 	int i;
 	int	last;
 
-	printf("ft_zero\n");
+	//printf("ft_zero\n");
 	i = prin->i_form;
 	last = prin->length + i;
 	while (i <= last && !(prin->form[i] >= '1' && prin->form[i] <= '9'))
@@ -37,7 +37,7 @@ int		ft_minus(t_prin *prin)
 	int i;
 	int	last;
 
-	printf("ft_minus\n");
+	//printf("ft_minus\n");
 	i = prin->i_form;
 	last = prin->length + i;
 	while (i < (last))
@@ -57,7 +57,7 @@ int		ft_plus(t_prin *prin)
 	int i;
 	int	last;
 
-	printf("ft_plus\n");
+	//printf("ft_plus\n");
 	i = prin->i_form;
 	last = prin->length + i;
 	while (i < last)

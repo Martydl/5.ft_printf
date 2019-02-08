@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reset.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 13:46:47 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/07 22:57:39 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_reset(t_prin *prin)
 {
-	printf("ft_reset\n");
+	//printf("ft_reset\n");
 	prin->flags = 0;
 	prin->preci = 1;
 	prin->field = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convu.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 11:11:23 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/07 23:00:39 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ void					ft_convu(t_prin *prin)
 {
 	char				*ret;
 	unsigned long long	nb;
-printf("ft_convu\n");
+	
+	//printf("ft_convu\n");
 	nb = ft_getnb(prin);
 	if (!(nb == 0 && prin->preci == 0))
 		ret = ft_llutoa_base(nb, 10, 0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 12:22:21 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/07 23:01:20 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	ft_convc(t_prin *prin)
 	char	*ret;
 	int		size;
 	int		i;
-printf("ft_convc\n");
+
+	//printf("ft_convc\n");
 	size = 1;
 	if (prin->field)
 		size += prin->field--;

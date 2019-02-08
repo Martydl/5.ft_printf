@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:59:30 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/07 23:00:19 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static char	*ft_add(t_prin *prin, char *ret)
 void	ft_convp(t_prin *prin)
 {
 	char	*ret;
-printf("ft_convp\n");
+
+	//printf("ft_convp\n");
 	ret = ft_getstring(prin);
 	if ((unsigned long)prin->field > ft_strlen(ret))
 		ret = ft_add(prin, ret);

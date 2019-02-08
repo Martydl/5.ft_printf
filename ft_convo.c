@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:26:00 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/07 23:01:20 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void					ft_convo(t_prin *prin)
 {
 	char				*ret;
 	unsigned long long	nb;
-printf("ft_convo\n");
+	
+	//printf("ft_convo\n");
 	nb = ft_getnb(prin);
 	if (!(nb == 0 && prin->preci == 0))
 		ret = ft_llutoa_base(nb, 8, 0);
