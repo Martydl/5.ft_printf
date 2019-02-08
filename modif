@@ -1,0 +1,4 @@
+- Fixed %% (ret var)
+- Fixed i + j ft_parse
+- Fixed preci for %s PAS. DU. TOUT.
+- Fixed prin init by moving reset
