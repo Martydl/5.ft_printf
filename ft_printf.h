@@ -3,39 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 13:34:19 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 11:04:27 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/09 16:36:58 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include "libft/libft.h"
-#include <stdarg.h>
-#include <stdlib.h>
-#include <stdio.h>
+# include "libft/libft.h"
+# include <stdarg.h>
+# include <stdlib.h>
+# include <stdio.h>
 
 typedef struct	s_prin
 {
+	va_list		ap;
 	int			ret;
-	long		i_form;
+	char		*output;
+	char		*form;
+	long		z;
+	int			length;
+	char		conv;
 	int			flags;
-	int			preci;
-	int			field;
-	int			spac;
 	int			hash;
 	int			zero;
-	int			minus;
+	int			min;
+	int			spac;
 	int			plus;
-	char		conv;
-	int			length;
-
-	char		*form;
-	char		*output;
-	va_list		ap;
+	int			field;
+	int			preci;
 }				t_prin;
 
 int				ft_stopar(t_prin *prin);
@@ -63,10 +62,11 @@ char			*ft_llutoa_base(unsigned long long value, int base, int cas);
 void			ft_convo(t_prin *prin);
 void			ft_convu(t_prin *prin);
 void			ft_convx(t_prin *prin);
-void			ft_error(int k, t_prin *prin);
+void			ft_error(t_prin *prin);
 int				ft_printf(const char *format, ...);
 void			ft_convc(t_prin *prin);
 void			ft_convp(t_prin *prin);
 void			ft_convs(t_prin *prin);
+void			ft_free_prin(t_prin *prin);
 
 #endif

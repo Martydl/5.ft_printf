@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:41:32 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/09 16:03:02 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*ft_llutoa_base(unsigned long long value, int base, int cas)
 	unsigned long long	tmp;
 	char				*str;
 
-	//printf("ft_llutoa_base\n");
 	i = 0;
 	if (value == 0)
 		i = 1;

@@ -6,35 +6,22 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 09:48:37 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/09 16:35:40 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_error1(t_prin *prin)
+void	ft_free_prin(t_prin *prin)
 {
-	//printf("ft_error1\n");
-	ft_putstr("erreur d\'usage , pourcentage non reconnu");
-	ft_reset(prin);
+	free(prin->output);
+	free(prin->form);
 	free(prin);
-	exit(0);
 }
 
-void	ft_error2(t_prin *prin)
+void	ft_error(t_prin *prin)
 {
-	//printf("ft_error 2\n");
-	ft_putstr("erreur d\'usage , pourcentage non reconnu");
-	ft_reset(prin);
-	free(prin);
+	va_end(prin->ap);
+	ft_free_prin(prin);
 	exit(0);
-}
-
-void	ft_error(int k, t_prin *prin)
-{
-	//printf("ft_error\n");
-	if (k == 1)
-		ft_error1(prin);
-	if (k == 2)
-		ft_error2(prin);
 }

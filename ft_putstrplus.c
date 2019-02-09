@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 12:12:49 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/09 16:04:46 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	ft_putstrplus(char *s, t_prin *prin)
 {
-	//printf("ft_putstrplus\n");
-	int i;
-	i = 0;
+	int	i;
 
+	i = 0;
 	while (s[i] != '\0')
 	{
 		ft_putchar(s[i]);
@@ -25,4 +24,3 @@ void	ft_putstrplus(char *s, t_prin *prin)
 	}
 	prin->ret = i;
 }
-

@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:59:30 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/09 16:01:50 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	*ft_getstring(t_prin *prin)
 
 	ptr = va_arg(prin->ap, void*);
 	str = ft_strdup("0x");
-	str = ft_strjoin_free(str, ft_llutoa_base((unsigned long long)ptr, 16, 'a'));
+	str = ft_strjfree(str, ft_llutoa_base((unsigned long long)ptr, 16, 'a'));
 	return (str);
 }
 
@@ -32,21 +32,20 @@ static char	*ft_add(t_prin *prin, char *ret)
 		return (NULL);
 	while (--prin->field >= 0)
 		add[prin->field] = ' ';
-	if (!prin->minus)
-		ret = ft_strjoin_free(add, ret);
+	if (!prin->min)
+		ret = ft_strjfree(add, ret);
 	else
-		ret = ft_strjoin_free(ret, add);
+		ret = ft_strjfree(ret, add);
 	return (ret);
 }
 
-void	ft_convp(t_prin *prin)
+void		ft_convp(t_prin *prin)
 {
 	char	*ret;
 
-	//printf("ft_convp\n");
 	ret = ft_getstring(prin);
 	if ((unsigned long)prin->field > ft_strlen(ret))
 		ret = ft_add(prin, ret);
 	prin->ret += ft_strlen(ret);
-	prin->output = ft_strjoin_free(prin->output, ret);
+	prin->output = ft_strjfree(prin->output, ret);
 }

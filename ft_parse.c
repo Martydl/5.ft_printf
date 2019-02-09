@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:38:25 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/09 16:36:37 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,14 @@ int	ft_counter(t_prin *prin)
 	int		k;
 
 	j = 0;
-	i = prin->i_form;
+	i = 0;
 	k = 0;
 	converter = "diouxXfcsp";
-	//printf("ft_counter\n");
-	while (j == 0 && prin->form[i] != '\0')
+	while (j == 0 && prin->form[prin->z + i] != '\0')
 	{
-		while (prin->form[i] != converter[k] && k <= 9)
+		while (prin->form[prin->z + i] != converter[k] && k <= 9)
 			k++;
-		if (prin->form[i] == converter[k])
+		if (prin->form[prin->z + i] == converter[k])
 		{
 			prin->conv = converter[k];
 			j = 1;
@@ -36,18 +35,15 @@ int	ft_counter(t_prin *prin)
 		i++;
 		k = 0;
 	}
-	if (prin->conv == 's')
-		prin->preci = -1;
-	prin->length = i;
-	return (i);
+	prin->length = i - 1;
+	return (prin->z + i);
 }
 
 int	ft_perct(t_prin *prin)
 {
-	//printf("ft_perct\n");
-	if (prin->form[prin->i_form] == '%' && prin->form[prin->i_form + 1] == '%')
+	if (prin->form[prin->z] == '%' && prin->form[prin->z + 1] == '%')
 	{
-		prin->output = ft_strjoin_free(prin->output, ft_strdup("%"));
+		prin->output = ft_strjfree(prin->output, ft_strdup("%"));
 		return (1);
 	}
 	return (0);
@@ -57,14 +53,13 @@ int	ft_check(t_prin *prin)
 {
 	int retu;
 
-	//printf("ft_check\n");
 	retu = ft_counter(prin);
 	if (ft_perct(prin) == 1)
 		return (2);
 	if (ft_stopar(prin) != -1)
 	{
 		if (!(ft_convert(prin)))
-			ft_error(1, prin);
+			ft_error(prin);
 	}
 	else
 		return (0);
@@ -76,22 +71,22 @@ int	ft_parse(t_prin *prin)
 	int		j;
 
 	j = 0;
-	//printf("ft_parse\n");
 	prin->output = ft_strnew(0);
-	while (prin->form[prin->i_form] != '\0')
+	while (prin->form[prin->z] != '\0')
 	{
-		while (prin->form[prin->i_form] != '%' && prin->form[prin->i_form] != '\0')
+		while (prin->form[prin->z] != '%' && prin->form[prin->z] != '\0')
 		{
-			prin->output = ft_strjoin_free(prin->output, ft_strndup(prin->form + prin->i_form, 1));
-			prin->i_form++;
+			prin->output =
+				ft_strjfree(prin->output, ft_strndup(prin->form + prin->z, 1));
+			prin->z++;
 		}
-		if (prin->form[prin->i_form] == '%')
+		if (prin->form[prin->z] == '%')
 		{
 			if (!(ft_reset(prin)))
-				ft_error(1, prin);
+				ft_error(prin);
 			if ((j = ft_check(prin)) == 0)
 				return (-1);
-			prin->i_form = j;
+			prin->z = j;
 		}
 	}
 	return (1);

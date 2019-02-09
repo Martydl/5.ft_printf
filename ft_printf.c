@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:37:46 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/09 16:35:57 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 int		ft_printf(const char *format, ...)
 {
-	//printf("hello\n");
-	t_prin  *prin;
+	t_prin	*prin;
 
 	if (!(prin = (t_prin *)malloc(sizeof(t_prin))))
 		return (0);
 	va_start(prin->ap, format);
-	prin->i_form = 0;
+	prin->z = 0;
 	prin->form = ft_strdup((char *)format);
 	if (ft_parse(prin) != 1)
-		ft_error(1, prin);
+		ft_error(prin);
 	ft_putstrplus(prin->output, prin);
-	free(prin->form);
-	free(prin);
 	va_end(prin->ap);
+	ft_free_prin(prin);
 	return (prin->ret);
 }

@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:43:34 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/09 16:08:22 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static long long	ft_getnb(t_prin *prin)
 		ret = va_arg(prin->ap, long);
 	else if (prin->flags == 4)
 		ret = va_arg(prin->ap, long long);
-
 	return (ret);
 }
 
@@ -54,21 +53,21 @@ static char			*ft_prefix(t_prin *prin, long long nb, char *str)
 
 	nlen = ft_strlen(str);
 	size = ft_size(prin, nb, nlen);
-	if (!prin->minus && prin->field > size + nlen && (prin->field -= size + nlen))
+	if (!prin->min && prin->field > size + nlen && (prin->field -= size + nlen))
 		size += prin->field;
-	else if (!prin->minus)
+	else if (!prin->min)
 		prin->field = 0;
 	if (!(pre = ft_strnew(size)))
 		return (NULL);
 	i = 0;
-	if (!prin->minus && !prin->zero)
+	if (!prin->min && !prin->zero)
 		while (--prin->field >= 0)
 			pre[i++] = ' ';
 	nb < 0 ? pre[i++] = '-' : 0;
 	prin->spac && nb >= 0 ? pre[i++] = ' ' : 0;
 	prin->plus && nb >= 0 ? pre[i++] = '+' : 0;
-	if ((!prin->minus && prin->zero) || prin->preci)
-		while ((!prin->minus && --prin->field >= 0) || --prin->preci - nlen >= 0)
+	if ((!prin->min && prin->zero) || prin->preci)
+		while ((!prin->min && --prin->field >= 0) || --prin->preci - nlen >= 0)
 			pre[i++] = '0';
 	return (pre);
 }
@@ -85,7 +84,7 @@ static char			*ft_suffix(t_prin *prin, char *ret)
 		return (NULL);
 	while (i < len)
 		suf[i++] = ' ';
-	ret = ft_strjoin_free(ret, suf);
+	ret = ft_strjfree(ret, suf);
 	return (ret);
 }
 
@@ -94,15 +93,16 @@ void				ft_convd(t_prin *prin)
 	char		*ret;
 	long long	nb;
 
-	//printf("ft_convd\n");
 	nb = ft_getnb(prin);
+	if (prin->preci == -1)
+		prin->preci = 1;
 	if (!(nb == 0 && prin->preci == 0))
 		ret = ft_lltoa(nb > 0 ? nb : -nb);
 	else
 		ret = ft_strnew(0);
-	ret = ft_strjoin_free(ft_prefix(prin, nb, ret), ret);
-	if (prin->minus && prin->field > (int)ft_strlen(ret))
+	ret = ft_strjfree(ft_prefix(prin, nb, ret), ret);
+	if (prin->min && prin->field > (int)ft_strlen(ret))
 		ret = ft_suffix(prin, ret);
 	prin->ret += ft_strlen(ret);
-	prin->output = ft_strjoin_free(prin->output, ret);
+	prin->output = ft_strjfree(prin->output, ret);
 }

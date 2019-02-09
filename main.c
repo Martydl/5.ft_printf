@@ -4,23 +4,24 @@
 
 int main()
 {
-	//char	*n;
-	//short int n;
-	int n;
-	//long n;
-	//long long n;
+	//void	*n = "45";
+	//char	n = 'z';
+	//char	*n = "working?";
+	//char	n = 'm';
+	//short int n = 32767;
+	int n = 1458628;
+	//long n = 1485723452154785;
+	//long long n = 1584756545680234;
 	//double n;
 	//long double n;
 
-
-	n = "42";
 
 	dprintf(1, "\n\n-----------------------------------------------\n\n");
 	dprintf(1, "NORMAL\n\n\n");
 
 	dprintf(1, "-----------------------------------------------\n\n");
 	dprintf(1, " %d\n", ft_printf("  %d\t", n));
-	dprintf(1, " %d\n\n", dprintf(1, "  %d\t", n));
+	dprintf(1, " %d\n\n", dprintf(1, "  %d\t", n));/*
 
 	dprintf(1, " %d\n", ft_printf("  %1d\t", n));
 	dprintf(1, " %d\n\n", dprintf(1, "  %1d\t", n));
@@ -644,5 +645,5 @@ int main()
 	dprintf(1, " %d\n", ft_printf("  %#- 20.10d\t", n));
 	dprintf(1, " %d\n\n", dprintf(1, "  %#- 20.10d\t", n));
 	dprintf(1, "-----------------------------------------------\n\n");
-
+*/
 }

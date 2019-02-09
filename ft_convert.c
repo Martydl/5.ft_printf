@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:29:50 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/08 16:27:01 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/09 16:09:36 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int		ft_convert(t_prin *prin)
 		ft_convx(prin);
 	else if (prin->conv == 'X')
 		ft_convmx(prin);
-	//else if (prin->conv == 'f')
-		//ft_convf(prin);
+//	else if (prin->conv == 'f')
+//		ft_convf(prin);
 	else if (prin->conv == 'c')
 		ft_convc(prin);
 	else if (prin->conv == 's')

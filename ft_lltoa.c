@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 15:02:34 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/08 17:02:21 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/09 16:02:56 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ char	*ft_lltoa(long long nb)
 {
 	char	*str;
 	int		i;
-	
-	//printf("ft_lltoa\n");
+
 	i = ft_len(nb);
 	if (!(str = (char*)malloc(sizeof(char) * i + 1)))
 		return (NULL);

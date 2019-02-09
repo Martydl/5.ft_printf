@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lramard <lramard@student42.fr>             +#+  +:+       +#+         #
+#    By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 09:20:05 by lramard           #+#    #+#              #
-#    Updated: 2019/02/07 21:02:53 by lramard          ###   ########.fr        #
+#    Updated: 2019/02/09 16:22:42 by mde-laga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ SRC =ft_atoi.c \
 		ft_max.c \
 		ft_min.c \
 	   	ft_free.c \
-		ft_strjoin_free.c
+		ft_strjfree.c
 
 OBJ = $(SRC:.c=.o)
 
