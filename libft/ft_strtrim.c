@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 09:29:33 by lramard           #+#    #+#             */
-/*   Updated: 2018/11/19 09:15:26 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/10 15:49:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strtrim(char const *s)
 {
-	unsigned int	i;
-	unsigned int	st;
-	unsigned int	l;
+	uint32_t	i;
+	uint32_t	st;
+	uint32_t	l;
 	char			*mem;
 
 	if (s == NULL)

@@ -6,27 +6,27 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:26:00 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 15:31:10 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:49:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static unsigned long long	ft_getnb(t_prin *prin)
+static uint64_t	ft_getnb(t_prin *prin)
 {
-	unsigned long long ret;
+	uint64_t ret;
 
 	ret = 0;
 	if (prin->flags == 0)
-		ret = va_arg(prin->ap, unsigned int);
+		ret = va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 1)
-		ret = (short)va_arg(prin->ap, unsigned int);
+		ret = (short)va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 2)
-		ret = (char)va_arg(prin->ap, unsigned int);
+		ret = (char)va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 3)
-		ret = va_arg(prin->ap, unsigned long);
+		ret = va_arg(prin->ap, uint64_t);
 	else if (prin->flags == 4)
-		ret = va_arg(prin->ap, unsigned long long);
+		ret = va_arg(prin->ap, uint64_t);
 	return (ret);
 }
 
@@ -88,7 +88,7 @@ static char					*ft_suffix(t_prin *prin, char *ret)
 void						ft_convo(t_prin *prin)
 {
 	char				*ret;
-	unsigned long long	nb;
+	uint64_t	nb;
 
 	nb = ft_getnb(prin);
 	if (prin->preci == -1)

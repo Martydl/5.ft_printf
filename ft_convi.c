@@ -6,15 +6,15 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:43:34 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/09 16:01:40 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:50:44 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static long long	ft_getnb(t_prin *prin)
+static int64_t	ft_getnb(t_prin *prin)
 {
-	long long ret;
+	int64_t ret;
 
 	ret = 0;
 	if (prin->flags == 0)
@@ -24,13 +24,13 @@ static long long	ft_getnb(t_prin *prin)
 	else if (prin->flags == 2)
 		ret = (char)va_arg(prin->ap, int);
 	else if (prin->flags == 3)
-		ret = va_arg(prin->ap, long);
+		ret = va_arg(prin->ap, int64_t);
 	else if (prin->flags == 4)
-		ret = va_arg(prin->ap, long long);
+		ret = va_arg(prin->ap, int64_t);
 	return (ret);
 }
 
-static int			ft_size(t_prin *prin, long long nb, int nlen)
+static int			ft_size(t_prin *prin, int64_t nb, int nlen)
 {
 	int size;
 
@@ -44,7 +44,7 @@ static int			ft_size(t_prin *prin, long long nb, int nlen)
 	return (size);
 }
 
-static char			*ft_prefix(t_prin *prin, long long nb, char *str)
+static char			*ft_prefix(t_prin *prin, int64_t nb, char *str)
 {
 	char	*pre;
 	int		size;
@@ -76,7 +76,7 @@ static char			*ft_suffix(t_prin *prin, char *ret)
 {
 	char		*suf;
 	int			i;
-	long long	len;
+	int64_t	len;
 
 	i = 0;
 	len = prin->field - ft_strlen(ret);
@@ -91,7 +91,7 @@ static char			*ft_suffix(t_prin *prin, char *ret)
 void				ft_convi(t_prin *prin)
 {
 	char		*ret;
-	long long	nb;
+	int64_t	nb;
 
 	nb = ft_getnb(prin);
 	if (prin->preci == -1)

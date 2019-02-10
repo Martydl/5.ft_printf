@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:16:44 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/09 16:02:06 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 16:03:15 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static char	*ft_getstring(t_prin *prin)
 	char	*str;
 	char	*tmp;
 
-	tmp = va_arg(prin->ap, char*);
+	if (!(tmp = va_arg(prin->ap, char*)))
+		return (ft_strdup("(null)"));
 	if (prin->preci >= 0)
 		str = ft_strndup(tmp, prin->preci);
 	else

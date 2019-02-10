@@ -6,16 +6,16 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 15:41:32 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/09 16:03:02 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:48:25 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_llutoa_base(unsigned long long value, int base, int cas)
+char	*ft_llutoa_base(uint64_t value, int base, int cas)
 {
 	int					i;
-	unsigned long long	tmp;
+	uint64_t	tmp;
 	char				*str;
 
 	i = 0;

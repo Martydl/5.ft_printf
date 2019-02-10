@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 11:26:34 by lramard           #+#    #+#             */
-/*   Updated: 2018/11/28 13:46:00 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/10 15:49:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char			*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	i;
+	uint32_t	i;
 	char			*str;
 
 	if (s1 && s2)

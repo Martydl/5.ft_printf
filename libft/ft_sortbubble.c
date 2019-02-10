@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sortbubble.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 16:59:43 by lramard           #+#    #+#             */
-/*   Updated: 2018/11/22 09:33:53 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/10 15:48:25 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_sortbubble(char *tab)
 {
 	int					permut;
-	unsigned long		i;
+	uint64_t		i;
 	char				*tmp;
 
 	if (tab == NULL)

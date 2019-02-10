@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 16:11:28 by lramard           #+#    #+#             */
-/*   Updated: 2018/11/21 16:22:33 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/10 15:49:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ static int		ft_size_words(char const *s, char c)
 
 static void		ft_size_letter(char **mem, char const *s, char c)
 {
-	unsigned int i;
-	unsigned int j;
-	unsigned int nb_letter;
+	uint32_t i;
+	uint32_t j;
+	uint32_t nb_letter;
 
 	i = 0;
 	j = 0;
@@ -62,7 +62,7 @@ static void		ft_size_letter(char **mem, char const *s, char c)
 
 char			**ft_strsplit(char const *s, char c)
 {
-	unsigned int	i;
+	uint32_t	i;
 	char			**mem;
 	int				j;
 	int				size;

@@ -10,10 +10,10 @@ int main()
 	//char	n = 'm';
 	//short int n = 32767;
 	//int n = 1458628;
-	//long n = 1485723452154785;
-	//long long n = 1584756545680234;
+	//int64_t n = 1485723452154785;
+	//int64_t n = 1584756545680234;
 	//double n;
-	//long double n;
+	//int64_t double n;
 	float n = 123.123;
 
 	ft_printf("%.21f\n", n);

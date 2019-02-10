@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 13:09:25 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 15:43:13 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:53:28 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ static	uint64_t	ft_getnb(t_prin *prin)
 	return (ret);
 }
 
-static int			ft_size(t_prin *prin, int nlen)
+static int			ft_size(t_prin *prin, int nlen, uint64_t nb)
 {
 	int size;
 
 	size = 0;
-	if (prin->hash == 1)
+	if (prin->hash == 1 && nb != 0)
 		size += 2;
 	if (prin->preci > nlen)
 		size += prin->preci - nlen;
 	return (size);
 }
 
-static char			*ft_prefix(t_prin *prin, char *str)
+static char			*ft_prefix(t_prin *prin, char *str, uint64_t nb)
 {
 	char	*pre;
 	int		size;
@@ -50,7 +50,7 @@ static char			*ft_prefix(t_prin *prin, char *str)
 	int		i;
 
 	nlen = ft_strlen(str);
-	size = ft_size(prin, nlen);
+	size = ft_size(prin, nlen, nb);
 	if (!prin->min && prin->field > size + nlen && (prin->field -= size + nlen))
 		size += prin->field;
 	else if (!prin->min)
@@ -61,7 +61,7 @@ static char			*ft_prefix(t_prin *prin, char *str)
 	if (!prin->min && !prin->zero)
 		while (--prin->field >= 0)
 			pre[i++] = ' ';
-	if (prin->hash && (i += 2))
+	if (prin->hash && nb != 0 && (i += 2))
 		ft_strcpy(pre + i - 2, "0x");
 	if ((!prin->min && prin->zero) || prin->preci)
 		while ((!prin->min && --prin->field >= 0) || --prin->preci - nlen >= 0)
@@ -95,7 +95,7 @@ void				ft_convx(t_prin *prin)
 		ret = ft_llutoa_base(nb, 16, 'a');
 	else
 		ret = ft_strnew(0);
-	ret = ft_strjfree(ft_prefix(prin, ret), ret);
+	ret = ft_strjfree(ft_prefix(prin, ret, nb), ret);
 	if (prin->min && prin->field > (int)ft_strlen(ret))
 		ret = ft_suffix(prin, ret);
 	prin->ret += ft_strlen(ret);

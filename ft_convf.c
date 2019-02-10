@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 15:58:36 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 14:08:47 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:50:44 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ft_rounder(t_fl *fl, int n)
 {
 	int		i;
-	long	tmp;
-	long	ret;
+	int64_t	tmp;
+	int64_t	ret;
 
 	i = 0;
 	tmp = 0;
@@ -86,8 +86,8 @@ void	ft_separator(t_fl *fl, double value)
 	double bk;
 
 	fr = value / 1;
-	bk = value - ((long)value);
-	fl->front = (long)fr;
+	bk = value - ((int64_t)value);
+	fl->front = (int64_t)fr;
 	fl->back = bk;
 }
 

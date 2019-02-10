@@ -6,43 +6,43 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:23:59 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 15:31:20 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:58:06 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static unsigned long long	ft_getnb(t_prin *prin)
+static uint64_t	ft_getnb(t_prin *prin)
 {
-	unsigned long long ret;
+	uint64_t ret;
 
 	ret = 0;
 	if (prin->flags == 0)
-		ret = va_arg(prin->ap, unsigned int);
+		ret = va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 1)
-		ret = (short)va_arg(prin->ap, unsigned int);
+		ret = (short)va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 2)
-		ret = (char)va_arg(prin->ap, unsigned int);
+		ret = (char)va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 3)
-		ret = va_arg(prin->ap, unsigned long);
+		ret = va_arg(prin->ap, uint64_t);
 	else if (prin->flags == 4)
-		ret = va_arg(prin->ap, unsigned long long);
+		ret = va_arg(prin->ap, uint64_t);
 	return (ret);
 }
 
-static int					ft_size(t_prin *prin, int nlen)
+static int		ft_size(t_prin *prin, int nlen, uint64_t nb)
 {
 	int size;
 
 	size = 0;
-	if (prin->hash == 1)
+	if (prin->hash == 1 && nb != 0)
 		size += 2;
 	if (prin->preci > nlen)
 		size += prin->preci - nlen;
 	return (size);
 }
 
-static char					*ft_prefix(t_prin *prin, char *str)
+static char		*ft_prefix(t_prin *prin, char *str, uint64_t nb)
 {
 	char	*pre;
 	int		size;
@@ -50,7 +50,7 @@ static char					*ft_prefix(t_prin *prin, char *str)
 	int		i;
 
 	nlen = ft_strlen(str);
-	size = ft_size(prin, nlen);
+	size = ft_size(prin, nlen, nb);
 	if (!prin->min && prin->field > size + nlen && (prin->field -= size + nlen))
 		size += prin->field;
 	else if (!prin->min)
@@ -61,7 +61,7 @@ static char					*ft_prefix(t_prin *prin, char *str)
 	if (!prin->min && !prin->zero)
 		while (--prin->field >= 0)
 			pre[i++] = ' ';
-	if (prin->hash && (i += 2))
+	if (prin->hash && nb != 0 && (i += 2))
 		ft_strcpy(pre + i - 2, "0X");
 	if ((!prin->min && prin->zero) || prin->preci)
 		while ((!prin->min && --prin->field >= 0) || --prin->preci - nlen >= 0)
@@ -69,7 +69,7 @@ static char					*ft_prefix(t_prin *prin, char *str)
 	return (pre);
 }
 
-static char					*ft_suffix(t_prin *prin, char *ret)
+static char		*ft_suffix(t_prin *prin, char *ret)
 {
 	char	*suf;
 	int		i;
@@ -85,17 +85,17 @@ static char					*ft_suffix(t_prin *prin, char *ret)
 	return (ret);
 }
 
-void						ft_convmx(t_prin *prin)
+void			ft_convmx(t_prin *prin)
 {
-	char				*ret;
-	unsigned long long	nb;
+	char		*ret;
+	uint64_t	nb;
 
 	nb = ft_getnb(prin);
 	if (!(nb == 0 && prin->preci == 0))
 		ret = ft_llutoa_base(nb, 16, 'A');
 	else
 		ret = ft_strnew(0);
-	ret = ft_strjfree(ft_prefix(prin, ret), ret);
+	ret = ft_strjfree(ft_prefix(prin, ret, nb), ret);
 	if (prin->min && prin->field > (int)ft_strlen(ret))
 		ret = ft_suffix(prin, ret);
 	prin->ret += ft_strlen(ret);

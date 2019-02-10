@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 13:34:19 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 15:40:19 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:50:44 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct	s_prin
 	int			ret;
 	char		*output;
 	char		*form;
-	long		z;
+	int64_t		z;
 	int			length;
 	char		conv;
 	int			flags;
@@ -40,10 +40,10 @@ typedef struct	s_prin
 
 typedef struct	s_fl
 {
-	long		ret;
-	long		front;
+	int64_t		ret;
+	int64_t		front;
 	double		back;
-	long		bk_l;
+	int64_t		bk_l;
 
 	char		*sig;
 	char		*mant;
@@ -53,9 +53,9 @@ typedef struct	s_fl
 typedef union {
   float flt;
   struct {
-    unsigned int mant : 23;
-    unsigned int expon : 8;
-    unsigned int sign : 1;
+    uint32_t mant : 23;
+    uint32_t expon : 8;
+    uint32_t sign : 1;
   } parts;
 } t_flieee;
 
@@ -76,11 +76,11 @@ int				ft_convert(t_prin *prin);
 void			ft_convert2(t_prin *prin);
 void			ft_convperct(t_prin *prin);
 int				ft_counter(t_prin *prin);
-char			*ft_lltoa(long long nb);
+char			*ft_lltoa(int64_t nb);
 void			ft_convd(t_prin *prin);
 void			ft_convi(t_prin *prin);
 void			ft_convmx(t_prin *prin);
-char			*ft_llutoa_base(unsigned long long value, int base, int cas);
+char			*ft_llutoa_base(uint64_t value, int base, int cas);
 void			ft_convo(t_prin *prin);
 void			ft_convu(t_prin *prin);
 void			ft_convx(t_prin *prin);

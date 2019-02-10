@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 15:13:37 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/09 16:20:52 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 17:02:52 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ int		ft_field(t_prin *prin)
 	char	*str;
 
 	i = 1;
-	while (i < prin->length && !(ft_isdigit(prin->form[prin->z + i]) ||
-		prin->form[prin->z + i] == '0') && prin->form[prin->z + i] != '.')
+	while (i < prin->length && (!ft_isdigit(prin->form[prin->z + i]) ||
+		(prin->form[prin->z + i] == '0')) && prin->form[prin->z + i] != '.')
 		i++;
 	if (i < prin->length && prin->form[prin->z + i] != '.')
 	{

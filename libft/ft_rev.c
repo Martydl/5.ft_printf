@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rev.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 08:42:51 by lramard           #+#    #+#             */
-/*   Updated: 2018/11/22 08:57:18 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/10 15:49:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_rev(char *str)
 {
-	unsigned int	i;
-	unsigned int	length;
+	uint32_t	i;
+	uint32_t	length;
 	char			*str_copy;
 	char			tmp;
 
