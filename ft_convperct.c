@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 15:01:55 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 15:11:53 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 17:24:21 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_convperct(t_prin *prin)
 	i = 0;
 	if (!prin->min)
 		while (--prin->field >= 0)
-			ret[i++] = ' ';
+			ret[i++] = (prin->zero ? '0' : ' ');
 	ret[i++] = '%';
 	if (prin->min)
 		while (--prin->field >= 0)
