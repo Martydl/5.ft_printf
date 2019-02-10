@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 09:16:19 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/09 16:22:57 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 12:59:21 by lramard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ int					ft_max(int a, int b);
 int					ft_min(int a, int b);
 int					ft_free(char *s1, char *s2);
 char				*ft_strjfree(char *s1, char *s2);
+char		*ft_convert_base(char *nbr, char *base_from, char *base_to);
 
 #endif
