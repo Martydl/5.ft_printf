@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:38:25 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/09 16:36:37 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 10:11:50 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_check(t_prin *prin)
 
 	retu = ft_counter(prin);
 	if (ft_perct(prin) == 1)
-		return (2);
+		return (prin->z + 2);
 	if (ft_stopar(prin) != -1)
 	{
 		if (!(ft_convert(prin)))

@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:37:46 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/09 16:35:57 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 09:38:06 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int		ft_printf(const char *format, ...)
 {
 	t_prin	*prin;
+	int		retu;
 
 	if (!(prin = (t_prin *)malloc(sizeof(t_prin))))
 		return (0);
@@ -25,6 +26,7 @@ int		ft_printf(const char *format, ...)
 		ft_error(prin);
 	ft_putstrplus(prin->output, prin);
 	va_end(prin->ap);
+	retu = prin->ret;
 	ft_free_prin(prin);
-	return (prin->ret);
+	return (retu);
 }

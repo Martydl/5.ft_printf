@@ -9,19 +9,21 @@ int main()
 	//char	*n = "working?";
 	//char	n = 'm';
 	//short int n = 32767;
-	int n = 1458628;
+	//int n = 1458628;
 	//long n = 1485723452154785;
 	//long long n = 1584756545680234;
 	//double n;
 	//long double n;
 
+	ft_printf("moi : %%%%%%%s  %d%%\n", "abCDe12345", 42);
+	printf("lui : %%%%%%%s  %d%%\n", "abCDe12345", 42);
 
-	dprintf(1, "\n\n-----------------------------------------------\n\n");
+	/*dprintf(1, "\n\n-----------------------------------------------\n\n");
 	dprintf(1, "NORMAL\n\n\n");
 
 	dprintf(1, "-----------------------------------------------\n\n");
 	dprintf(1, " %d\n", ft_printf("  %d\t", n));
-	dprintf(1, " %d\n\n", dprintf(1, "  %d\t", n));/*
+	dprintf(1, " %d\n\n", dprintf(1, "  %d\t", n));
 
 	dprintf(1, " %d\n", ft_printf("  %1d\t", n));
 	dprintf(1, " %d\n\n", dprintf(1, "  %1d\t", n));
