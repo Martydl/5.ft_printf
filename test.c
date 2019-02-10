@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mde-laga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 11:28:57 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 11:29:47 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 14:43:43 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.a"
+#include "ft_printf.h"
 
 int		main()
 {
