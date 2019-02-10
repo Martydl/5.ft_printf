@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:26:00 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/09 16:01:40 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:31:10 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ static unsigned long long	ft_getnb(t_prin *prin)
 
 	ret = 0;
 	if (prin->flags == 0)
-		ret = va_arg(prin->ap, int);
+		ret = va_arg(prin->ap, unsigned int);
 	else if (prin->flags == 1)
-		ret = (short)va_arg(prin->ap, int);
+		ret = (short)va_arg(prin->ap, unsigned int);
 	else if (prin->flags == 2)
-		ret = (char)va_arg(prin->ap, int);
+		ret = (char)va_arg(prin->ap, unsigned int);
 	else if (prin->flags == 3)
-		ret = va_arg(prin->ap, long);
+		ret = va_arg(prin->ap, unsigned long);
 	else if (prin->flags == 4)
-		ret = va_arg(prin->ap, long long);
+		ret = va_arg(prin->ap, unsigned long long);
 	return (ret);
 }
 

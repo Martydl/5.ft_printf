@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_convperct.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/30 09:48:37 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 14:53:38 by mde-laga         ###   ########.fr       */
+/*   Created: 2019/02/10 15:01:55 by mde-laga          #+#    #+#             */
+/*   Updated: 2019/02/10 15:11:53 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_free_prin(t_prin *prin)
+void	ft_convperct(t_prin *prin)
 {
-	free(prin->output);
-	free(prin->form);
-	free(prin);
-}
+	char	*ret;
+	int		size;
+	int		i;
 
-void	ft_error(t_prin *prin)
-{
-	va_end(prin->ap);
-	ft_free_prin(prin);
-	ft_putstr("error\n");
-	exit(0);
+	size = 1;
+	if (prin->field)
+		size += prin->field--;
+	if (!(ret = ft_strnew(size)))
+		return ;
+	i = 0;
+	if (!prin->min)
+		while (--prin->field >= 0)
+			ret[i++] = ' ';
+	ret[i++] = '%';
+	if (prin->min)
+		while (--prin->field >= 0)
+			ret[i++] = ' ';
+	prin->ret += ft_strlen(ret);
+	prin->output = ft_strjfree(prin->output, ret);
 }

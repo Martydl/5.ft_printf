@@ -6,14 +6,16 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 11:28:57 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 14:43:43 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:45:52 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int		main()
 {
-	ft_printf("%s\n", "abcde");
+	ft_printf("%llx/\n", 9223372036854775907u);
+	printf("%llx/\n", 9223372036854775907u);
 	return (0);
 }

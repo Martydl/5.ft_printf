@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 13:34:19 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 13:13:53 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:40:19 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft/libft.h"
 # include <stdarg.h>
 # include <stdlib.h>
+# include <stdint.h>
 # include <stdio.h>
 
 typedef struct	s_prin
@@ -73,7 +74,7 @@ void			ft_putstrplus(char *s, t_prin *prin);
 int				ft_reset(t_prin *prin);
 int				ft_convert(t_prin *prin);
 void			ft_convert2(t_prin *prin);
-int				ft_percent(const char *format);
+void			ft_convperct(t_prin *prin);
 int				ft_counter(t_prin *prin);
 char			*ft_lltoa(long long nb);
 void			ft_convd(t_prin *prin);

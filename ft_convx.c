@@ -6,31 +6,31 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 13:09:25 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/09 16:02:46 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:43:13 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static unsigned long long	ft_getnb(t_prin *prin)
+static	uint64_t	ft_getnb(t_prin *prin)
 {
-	unsigned long long ret;
+	uint64_t ret;
 
 	ret = 0;
 	if (prin->flags == 0)
-		ret = va_arg(prin->ap, int);
+		ret = va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 1)
-		ret = (short)va_arg(prin->ap, int);
+		ret = (short)va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 2)
-		ret = (char)va_arg(prin->ap, int);
+		ret = (char)va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 3)
-		ret = va_arg(prin->ap, long);
+		ret = va_arg(prin->ap, uint64_t);
 	else if (prin->flags == 4)
-		ret = va_arg(prin->ap, long long);
+		ret = va_arg(prin->ap, uint64_t);
 	return (ret);
 }
 
-static int					ft_size(t_prin *prin, int nlen)
+static int			ft_size(t_prin *prin, int nlen)
 {
 	int size;
 
@@ -42,7 +42,7 @@ static int					ft_size(t_prin *prin, int nlen)
 	return (size);
 }
 
-static char					*ft_prefix(t_prin *prin, char *str)
+static char			*ft_prefix(t_prin *prin, char *str)
 {
 	char	*pre;
 	int		size;
@@ -69,7 +69,7 @@ static char					*ft_prefix(t_prin *prin, char *str)
 	return (pre);
 }
 
-static char					*ft_suffix(t_prin *prin, char *ret)
+static char			*ft_suffix(t_prin *prin, char *ret)
 {
 	char	*suf;
 	int		i;
@@ -85,10 +85,10 @@ static char					*ft_suffix(t_prin *prin, char *ret)
 	return (ret);
 }
 
-void						ft_convx(t_prin *prin)
+void				ft_convx(t_prin *prin)
 {
-	char				*ret;
-	unsigned long long	nb;
+	char		*ret;
+	uint64_t	nb;
 
 	nb = ft_getnb(prin);
 	if (!(nb == 0 && prin->preci == 0))

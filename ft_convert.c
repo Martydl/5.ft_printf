@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:29:50 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 13:09:47 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 15:06:03 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int		ft_convert(t_prin *prin)
 {
-	if (prin->conv == 'd')
+	if (prin->conv == '%')
+		ft_convperct(prin);
+	else if (prin->conv == 'd')
 		ft_convd(prin);
 	else if (prin->conv == 'i')
 		ft_convi(prin);

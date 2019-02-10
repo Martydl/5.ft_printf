@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lramard <lramard@student42.fr>             +#+  +:+       +#+         #
+#    By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/07 20:20:29 by lramard           #+#    #+#              #
-#    Updated: 2019/02/10 14:43:46 by mde-laga         ###   ########.fr        #
+#    Updated: 2019/02/10 15:06:56 by mde-laga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRC = ft_printf.c \
 				ft_lltoa.c \
 				ft_llutoa_base.c \
 				ft_convf.c \
+				ft_convperct.c \
 				main.c
 
 
