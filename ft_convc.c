@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 12:22:21 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 16:44:40 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 21:56:45 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	ft_convc(t_prin *prin)
 	int		i;
 
 	c = va_arg(prin->ap, int);
-	 size = (ft_isprint(c) ? 1 : 0);
+	size = (ft_isprint(c) ? 1 : 0);
 	if (prin->field)
 		size += prin->field--;
 	if (!(ret = ft_strnew(size)))
-		return ;
+		ft_error(prin);
 	i = 0;
 	if (!prin->min)
 		while (--prin->field >= 0)

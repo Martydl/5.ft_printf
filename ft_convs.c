@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:16:44 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 16:03:15 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 22:17:19 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,15 @@ static char	*ft_getstring(t_prin *prin)
 	char	*tmp;
 
 	if (!(tmp = va_arg(prin->ap, char*)))
-		return (ft_strdup("(null)"));
-	if (prin->preci >= 0)
-		str = ft_strndup(tmp, prin->preci);
-	else
-		str = ft_strdup(tmp);
+	{
+		if (!(str = ft_strdup("(null)")))
+			ft_error(prin);
+		return (str);
+	}
+	if (prin->preci >= 0 && (!(str = ft_strndup(tmp, prin->preci))))
+		ft_error(prin);
+	else if (!(str = ft_strdup(tmp)))
+		ft_error(prin);
 	return (str);
 }
 
@@ -32,13 +36,13 @@ static char	*ft_add(t_prin *prin, char *ret)
 
 	prin->field -= ft_strlen(ret);
 	if (!(add = ft_strnew(prin->field)))
-		return (NULL);
+		ft_error(prin);
 	while (--prin->field >= 0)
 		add[prin->field] = ' ';
-	if (!prin->min)
-		ret = ft_strjfree(add, ret);
-	else
-		ret = ft_strjfree(ret, add);
+	if (!prin->min && (!(ret = ft_strjfree(add, ret))))
+		ft_error(prin);
+	else if (!(ret = ft_strjfree(ret, add)))
+		ft_error(prin);
 	return (ret);
 }
 
@@ -50,5 +54,6 @@ void		ft_convs(t_prin *prin)
 	if (prin->field > (int)ft_strlen(ret))
 		ret = ft_add(prin, ret);
 	prin->ret += ft_strlen(ret);
-	prin->output = ft_strjfree(prin->output, ret);
+	if (!(prin->output = ft_strjfree(prin->output, ret)))
+		ft_error(prin);
 }

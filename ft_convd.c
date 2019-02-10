@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:43:34 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 15:50:44 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 22:22:05 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int64_t	ft_getnb(t_prin *prin)
 	return (ret);
 }
 
-static int			ft_size(t_prin *prin, int64_t nb, int nlen)
+static int		ft_size(t_prin *prin, int64_t nb, int nlen)
 {
 	int size;
 
@@ -44,7 +44,7 @@ static int			ft_size(t_prin *prin, int64_t nb, int nlen)
 	return (size);
 }
 
-static char			*ft_prefix(t_prin *prin, int64_t nb, char *str)
+static char		*ft_prefix(t_prin *prin, int64_t nb, char *str)
 {
 	char	*pre;
 	int		size;
@@ -58,7 +58,7 @@ static char			*ft_prefix(t_prin *prin, int64_t nb, char *str)
 	else if (!prin->min)
 		prin->field = 0;
 	if (!(pre = ft_strnew(size)))
-		return (NULL);
+		ft_error(prin);
 	i = 0;
 	if (!prin->min && !prin->zero)
 		while (--prin->field >= 0)
@@ -72,7 +72,7 @@ static char			*ft_prefix(t_prin *prin, int64_t nb, char *str)
 	return (pre);
 }
 
-static char			*ft_suffix(t_prin *prin, char *ret)
+static char		*ft_suffix(t_prin *prin, char *ret)
 {
 	char		*suf;
 	int			i;
@@ -81,28 +81,31 @@ static char			*ft_suffix(t_prin *prin, char *ret)
 	i = 0;
 	len = prin->field - ft_strlen(ret);
 	if (!(suf = ft_strnew(len)))
-		return (NULL);
+		ft_error(prin);
 	while (i < len)
 		suf[i++] = ' ';
-	ret = ft_strjfree(ret, suf);
+	if (!(ret = ft_strjfree(ret, suf)))
+		ft_error(prin);
 	return (ret);
 }
 
-void				ft_convd(t_prin *prin)
+void			ft_convd(t_prin *prin)
 {
-	char		*ret;
+	char	*ret;
 	int64_t	nb;
 
 	nb = ft_getnb(prin);
 	if (prin->preci == -1)
 		prin->preci = 1;
-	if (!(nb == 0 && prin->preci == 0))
-		ret = ft_lltoa(nb > 0 ? nb : -nb);
-	else
-		ret = ft_strnew(0);
-	ret = ft_strjfree(ft_prefix(prin, nb, ret), ret);
+	if (!(nb == 0 && prin->preci == 0) && (!(ret = ft_lltoa(nb > 0 ? nb : -nb))))
+		ft_error(prin);
+	else if (!(ret = ft_strnew(0)))
+		ft_error(prin);
+	if (!(ret = ft_strjfree(ft_prefix(prin, nb, ret), ret)))
+		ft_error(prin);
 	if (prin->min && prin->field > (int)ft_strlen(ret))
 		ret = ft_suffix(prin, ret);
 	prin->ret += ft_strlen(ret);
-	prin->output = ft_strjfree(prin->output, ret);
+	if (!(prin->output = ft_strjfree(prin->output, ret)))
+		ft_error(prin);
 }

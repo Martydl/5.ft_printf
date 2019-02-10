@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:26:00 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 15:49:21 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 22:23:16 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char					*ft_prefix(t_prin *prin, char *str)
 	else if (!prin->min)
 		prin->field = 0;
 	if (!(pre = ft_strnew(size)))
-		return (NULL);
+		ft_error(prin);
 	i = 0;
 	if (!prin->min && !prin->zero)
 		while (--prin->field >= 0)
@@ -78,10 +78,11 @@ static char					*ft_suffix(t_prin *prin, char *ret)
 	i = 0;
 	len = (prin->field - ft_strlen(ret));
 	if (!(suf = ft_strnew(len)))
-		return (NULL);
+		ft_error(prin);
 	while (i < len)
 		suf[i++] = ' ';
-	ret = ft_strjfree(ret, suf);
+	if (!(ret = ft_strjfree(ret, suf)))
+		ft_error(prin);
 	return (ret);
 }
 
@@ -93,13 +94,15 @@ void						ft_convo(t_prin *prin)
 	nb = ft_getnb(prin);
 	if (prin->preci == -1)
 		prin->preci = 1;
-	if (!(nb == 0 && prin->preci == 0))
-		ret = ft_llutoa_base(nb, 8, 0);
-	else
-		ret = ft_strnew(0);
-	ret = ft_strjfree(ft_prefix(prin, ret), ret);
+	if (!(nb == 0 && prin->preci == 0) && (!(ret = ft_llutoa_base(nb, 8, 0))))
+		ft_error(prin);
+	else if (!(ret = ft_strnew(0)))
+		ft_error(prin);
+	if (!(ret = ft_strjfree(ft_prefix(prin, ret), ret)))
+		ft_error(prin);
 	if (prin->min && (prin->field > (int)ft_strlen(ret)))
 		ret = ft_suffix(prin, ret);
 	prin->ret += ft_strlen(ret);
-	prin->output = ft_strjfree(prin->output, ret);
+	if (!(prin->output = ft_strjfree(prin->output, ret)))
+		ft_error(prin);
 }
