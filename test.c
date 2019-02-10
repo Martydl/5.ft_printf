@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 11:28:57 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 22:15:08 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 22:42:16 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int		main()
 {
 	double f = 123.8999994;
-	ft_printf("moi : %-10s/\n", NULL);
-	printf("lui : %-10s/\n", NULL);
+	ft_printf("moi : %15f/\n", f);
+	printf("lui : %15f/\n", f);
 	return (0);
 }
