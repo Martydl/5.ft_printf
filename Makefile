@@ -6,13 +6,13 @@
 #    By: lramard <lramard@student42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/07 20:20:29 by lramard           #+#    #+#              #
-#    Updated: 2019/02/10 10:33:54 by mde-laga         ###   ########.fr        #
+#    Updated: 2019/02/10 13:15:44 by lramard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf
+NAME = libftprintf.a
 
-FLAGS = -Wall -Wextra
+FLAGS = -Werror -Wall -Wextra
 
 SRC = ft_printf.c \
 				ft_parse.c \
@@ -45,17 +45,20 @@ INC = ft_printf.h
 
 all: $(NAME)
 
-$(NAME) : $(INC) $(OBJ) $(SRC)
-	make -C libft
-	gcc $(FLAGS) -c $(SRC) -I$(INC)
-	gcc $(FLAGS) -o $(NAME) $(OBJ) libft/libft.a
+$(NAME) : $(OBJ)
+	make -C libft/
+	cp libft/libft.a $(NAME)
+	ar rcs $(NAME) $(OBJ)
+
+%.o: %.c
+		gcc $(FLAGS) -I libft/ -I includes/ -c $< -o $@
 
 clean :
-	rm -f $(OBJ)
-	make clean -C libft
+		rm -f $(OBJ)
+		make clean -C libft
 
 fclean : clean
-	rm -f $(NAME)
-	rm -f libft/libft.a
+		rm -f $(NAME)
+		make fclean -C libft/
 
 re : fclean all
