@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 13:34:19 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 11:32:11 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 13:13:53 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,27 @@ typedef struct	s_prin
 	int			field;
 	int			preci;
 }				t_prin;
+
+typedef struct	s_fl
+{
+	long		ret;
+	long		front;
+	double		back;
+	long		bk_l;
+
+	char		*sig;
+	char		*mant;
+	char		*expo;
+}				t_fl;
+
+typedef union {
+  float flt;
+  struct {
+    unsigned int mant : 23;
+    unsigned int expon : 8;
+    unsigned int sign : 1;
+  } parts;
+} t_flieee;
 
 int				ft_stopar(t_prin *prin);
 int				ft_parse(t_prin *prin);
@@ -68,5 +89,6 @@ void			ft_convc(t_prin *prin);
 void			ft_convp(t_prin *prin);
 void			ft_convs(t_prin *prin);
 void			ft_free_prin(t_prin *prin);
+void			ft_convf(t_prin *prin);
 
 #endif

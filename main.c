@@ -14,9 +14,10 @@ int main()
 	//long long n = 1584756545680234;
 	//double n;
 	//long double n;
+	float n = 123.123;
 
-	ft_printf("moi : %%%%%%%s  %d%%\n", "abCDe12345", 42);
-	printf("lui : %%%%%%%s  %d%%\n", "abCDe12345", 42);
+	ft_printf("%.21f\n", n);
+	printf("%.21f\n", n);
 
 	/*dprintf(1, "\n\n-----------------------------------------------\n\n");
 	dprintf(1, "NORMAL\n\n\n");
