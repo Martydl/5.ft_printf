@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 13:34:19 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 15:50:44 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/10 17:40:16 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ typedef struct	s_fl
 	int64_t		front;
 	double		back;
 	int64_t		bk_l;
-
 	char		*sig;
 	char		*mant;
 	char		*expo;
+	char		*opt;
 }				t_fl;
 
 typedef union {
