@@ -6,13 +6,27 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:38:25 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/11 09:42:03 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 13:40:01 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_counter(t_prin *prin)
+static void	ft_v(t_prin *prin, char k)
+{
+	if (k == 'F')
+		prin->conv = 'F';
+	else if (k == 'X')
+		prin->conv = 'X';
+	else if (k == 'B')
+		prin->conv = 'B';
+	else if (k == 'G')
+		prin->conv = 'G';
+	else
+		prin->conv = ft_tolower(k);
+}
+
+int			ft_counter(t_prin *prin)
 {
 	char	*converter;
 	int		j;
@@ -22,14 +36,16 @@ int	ft_counter(t_prin *prin)
 	j = 0;
 	i = 1;
 	k = 0;
-	converter = "diouxXfcsp%b";
+	converter = "dDiIoOuUxXfFcspbBgG%";
 	while (j == 0 && prin->form[prin->z + i] != '\0')
 	{
-		while (prin->form[prin->z + i] != converter[k] && k <= 11)
+		while (prin->form[prin->z + i] != converter[k] && k <= 18)
 			k++;
 		if (prin->form[prin->z + i] == converter[k])
 		{
-			prin->conv = converter[k];
+			(prin->form[prin->z + i] >= 65 && prin->form[prin->z + i] <= 90) ?
+				(ft_v(prin, prin->form[prin->z + i])) :
+					(prin->conv = converter[k]);
 			j = 1;
 		}
 		i++;
@@ -39,7 +55,7 @@ int	ft_counter(t_prin *prin)
 	return (prin->z + i);
 }
 
-int	ft_check(t_prin *prin)
+static int	ft_check(t_prin *prin)
 {
 	int retu;
 
@@ -54,7 +70,7 @@ int	ft_check(t_prin *prin)
 	return (retu);
 }
 
-int	ft_parse(t_prin *prin)
+int			ft_parse(t_prin *prin)
 {
 	int		j;
 

@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:59:30 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 22:10:03 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:04:28 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*ft_add(t_prin *prin, char *ret)
 	while (--prin->field >= 0)
 		add[prin->field] = ' ';
 	if (!prin->min && (!(ret = ft_strjfree(add, ret))))
-			ft_error(prin);
+		ft_error(prin);
 	else if (!(ret = ft_strjfree(ret, add)))
 		ft_error(prin);
 	return (ret);

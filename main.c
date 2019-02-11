@@ -18,7 +18,7 @@ int main()
 	//n = 926585.15468L;
 
 
-	dprintf(1, " %d\n", ft_printf("  %#- 20.10f\t", n));
+	dprintf(1, " %d\n", ft_printf("%G\n"));
 	//dprintf(1, " %d\n\n", dprintf(1, "  %#- 20.10f\t", n));
 
 /*	dprintf(1, "\n\n-----------------------------------------------\n\n");

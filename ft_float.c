@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 10:15:40 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/11 13:20:46 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:09:04 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	ft_rdr2(t_fl *fl, char *str, int i)
 	}
 }
 
-void	ft_rounder(t_fl *fl, int n)
+void		ft_rounder(t_fl *fl, int n)
 {
 	int		i;
 	int64_t	tmp;
@@ -65,7 +65,7 @@ void	ft_rounder(t_fl *fl, int n)
 	free(tmp2);
 }
 
-int		ft_mantiser(t_fl *fl)
+int			ft_mantiser(t_fl *fl)
 {
 	int ex;
 	int man;
@@ -92,7 +92,7 @@ int		ft_mantiser(t_fl *fl)
 		return (0);
 }
 
-void	ft_normiser(t_fl *fl, double value)
+void		ft_normiser(t_fl *fl, double value)
 {
 	char		*sig;
 	char		*ex;
@@ -114,7 +114,7 @@ void	ft_normiser(t_fl *fl, double value)
 	free(k);
 }
 
-void	ft_separator(t_fl *fl, double value)
+void		ft_separator(t_fl *fl, double value)
 {
 	double fr;
 	double bk;

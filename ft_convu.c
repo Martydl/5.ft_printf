@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 11:11:23 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/11 09:46:36 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:04:54 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static uint64_t	ft_getnb(t_prin *prin)
 	return (ret);
 }
 
-static int					ft_size(t_prin *prin, int nlen)
+static int		ft_size(t_prin *prin, int nlen)
 {
 	int size;
 
@@ -40,7 +40,7 @@ static int					ft_size(t_prin *prin, int nlen)
 	return (size);
 }
 
-static char					*ft_prefix(t_prin *prin, char *str)
+static char		*ft_prefix(t_prin *prin, char *str)
 {
 	char	*pre;
 	int		size;
@@ -65,7 +65,7 @@ static char					*ft_prefix(t_prin *prin, char *str)
 	return (pre);
 }
 
-static char					*ft_suffix(t_prin *prin, char *ret)
+static char		*ft_suffix(t_prin *prin, char *ret)
 {
 	char	*suf;
 	int		i;
@@ -82,9 +82,9 @@ static char					*ft_suffix(t_prin *prin, char *ret)
 	return (ret);
 }
 
-void						ft_convu(t_prin *prin)
+void			ft_convu(t_prin *prin)
 {
-	char				*ret;
+	char		*ret;
 	uint64_t	nb;
 
 	nb = ft_getnb(prin);

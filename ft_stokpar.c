@@ -6,13 +6,13 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 11:45:25 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/11 09:27:18 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:06:42 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_conflit(t_prin *prin)
+static int	ft_conflit(t_prin *prin)
 {
 	if (prin->min == 1 && prin->zero == 1)
 		prin->zero = 0;
@@ -26,7 +26,7 @@ int		ft_conflit(t_prin *prin)
 	return (1);
 }
 
-int		ft_stopar(t_prin *prin)
+int			ft_stopar(t_prin *prin)
 {
 	if (!ft_flags(prin))
 		ft_error(prin);

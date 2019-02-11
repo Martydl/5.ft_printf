@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convf.c                                         :+:      :+:    :+:   */
+/*   ft_convmf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 15:58:36 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/11 14:07:47 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:08:48 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static char			*ft_suffix(t_prin *prin, char *ret)
 	return (ret);
 }
 
-void				ft_convf(t_prin *prin)
+void				ft_convmf(t_prin *prin)
 {
 	t_fl		*fl;
 	char		*ret;
@@ -105,9 +105,9 @@ void				ft_convf(t_prin *prin)
 	ft_rounder(fl, prin->preci);
 	mant = ft_mantiser(fl);
 	if (mant == 1)
-		prin->output = ft_strjfree(prin->output, "infinity");
+		prin->output = ft_strjfree(prin->output, "INFINITY");
 	else if (mant == 2)
-		prin->output = ft_strjfree(prin->output, "nan");
+		prin->output = ft_strjfree(prin->output, "NAN");
 	else
 	{
 		ret = ft_strnew(0);

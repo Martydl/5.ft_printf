@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:43:34 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/11 09:44:55 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:03:01 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ static char		*ft_prefix(t_prin *prin, int64_t nb, char *str)
 
 static char		*ft_suffix(t_prin *prin, char *ret)
 {
-	char		*suf;
-	int			i;
+	char	*suf;
+	int		i;
 	int64_t	len;
 
 	i = 0;

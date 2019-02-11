@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 12:12:49 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/09 16:04:46 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:02:29 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	ft_putstrplus(char *s, t_prin *prin)
 		ft_putchar(s[i]);
 		i++;
 	}
-	prin->ret = i;
+	prin->ret += i;
 }
