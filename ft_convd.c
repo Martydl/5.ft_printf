@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:43:34 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 22:22:05 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 09:42:44 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ void			ft_convd(t_prin *prin)
 	nb = ft_getnb(prin);
 	if (prin->preci == -1)
 		prin->preci = 1;
-	if (!(nb == 0 && prin->preci == 0) && (!(ret = ft_lltoa(nb > 0 ? nb : -nb))))
-		ft_error(prin);
+	if (!(nb == 0 && prin->preci == 0))
+		ret = ft_lltoa(nb > 0 ? nb : -nb);
 	else if (!(ret = ft_strnew(0)))
 		ft_error(prin);
 	if (!(ret = ft_strjfree(ft_prefix(prin, nb, ret), ret)))

@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 11:45:25 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/09 16:36:37 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 09:27:18 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int		ft_conflit(t_prin *prin)
 		prin->zero = 0;
 	else if (prin->zero == 1 && prin->preci != -1 && (prin->conv == 'd' ||
 				prin->conv == 'i' || prin->conv == 'o' || prin->conv == 'u' ||
-					prin->conv == 'x' || prin->conv == 'X'))
+					prin->conv == 'x' || prin->conv == 'X' ||
+						prin->conv == 'b'))
 		prin->zero = 0;
 	else if (prin->plus == 1 && prin->spac == 1)
 		prin->spac = 0;

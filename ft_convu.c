@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/05 11:11:23 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 22:22:33 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 09:46:36 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void						ft_convu(t_prin *prin)
 	uint64_t	nb;
 
 	nb = ft_getnb(prin);
-	if (!(nb == 0 && prin->preci == 0) && (!(ret = ft_llutoa_base(nb, 10, 0))))
-		ft_error(prin);
+	if (!(nb == 0 && prin->preci == 0))
+		ret = ft_llutoa_base(nb, 10, 0);
 	else if (!(ret = ft_strnew(0)))
 		ft_error(prin);
 	if (!(ret = ft_strjfree(ft_prefix(prin, ret), ret)))

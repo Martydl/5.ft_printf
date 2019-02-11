@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:29:50 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 15:06:03 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 09:28:08 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ int		ft_convert(t_prin *prin)
 		ft_convs(prin);
 	else if (prin->conv == 'p')
 		ft_convp(prin);
+	else if (prin->conv == 'b')
+		ft_convb(prin);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 13:09:25 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 22:26:11 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 09:45:28 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ void				ft_convx(t_prin *prin)
 	uint64_t	nb;
 
 	nb = ft_getnb(prin);
-	if (!(nb == 0 && prin->preci == 0) && (!(ret = ft_llutoa_base(nb, 16, 'a'))))
-		ft_error(prin);
+	if (!(nb == 0 && prin->preci == 0))
+		ret = ft_llutoa_base(nb, 16, 'a');
 	else if (!(ret = ft_strnew(0)))
 		ft_error(prin);
 	if (!(ret = ft_strjfree(ft_prefix(prin, ret, nb), ret)))

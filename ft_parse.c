@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:38:25 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 15:17:58 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 09:42:03 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	ft_counter(t_prin *prin)
 	j = 0;
 	i = 1;
 	k = 0;
-	converter = "diouxXfcsp%";
+	converter = "diouxXfcsp%b";
 	while (j == 0 && prin->form[prin->z + i] != '\0')
 	{
-		while (prin->form[prin->z + i] != converter[k] && k <= 10)
+		while (prin->form[prin->z + i] != converter[k] && k <= 11)
 			k++;
 		if (prin->form[prin->z + i] == converter[k])
 		{

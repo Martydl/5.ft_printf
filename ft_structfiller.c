@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 15:13:37 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 17:02:52 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 10:53:41 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_isflag(char c)
 {
-	return (c == 'h' || c == 'l' ? 1 : 0);
+	return (c == 'h' || c == 'l' || c == 'L' ? 1 : 0);
 }
 
 int		ft_flags(t_prin *prin)

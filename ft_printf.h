@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 13:34:19 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/10 17:40:16 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 10:17:48 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,10 @@ void			ft_convp(t_prin *prin);
 void			ft_convs(t_prin *prin);
 void			ft_free_prin(t_prin *prin);
 void			ft_convf(t_prin *prin);
+void			ft_convb(t_prin *prin);
+void			ft_rounder(t_fl *fl, int n);
+void			ft_separator(t_fl *fl, double value);
+void			ft_normiser(t_fl *fl, double value);
+int				ft_mantiser(t_fl *fl);
 
 #endif
