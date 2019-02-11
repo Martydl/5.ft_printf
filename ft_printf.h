@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 13:34:19 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/11 14:10:52 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 17:26:59 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void			ft_convb(t_prin *prin);
 void			ft_convc(t_prin *prin);
 void			ft_convd(t_prin *prin);
 void			ft_convf(t_prin *prin);
+void			ft_convf2(t_prin *prin, t_fl *fl, int neg);
 void			ft_convg(t_prin *prin);
 void			ft_convi(t_prin *prin);
 void			ft_convmb(t_prin *prin);

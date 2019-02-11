@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 10:15:40 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/11 15:32:42 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 17:27:58 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,15 +114,4 @@ void		ft_normiser(t_fl *fl, double value)
 	free(ex);
 	free(mts);
 	free(k);
-}
-
-void		ft_separator(t_fl *fl, double value)
-{
-	double fr;
-	double bk;
-
-	fr = value / 1;
-	bk = value - ((uint64_t)value);
-	fl->front = (uint64_t)fr;
-	fl->back = bk;
 }

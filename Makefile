@@ -6,7 +6,7 @@
 #    By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/07 20:20:29 by lramard           #+#    #+#              #
-#    Updated: 2019/02/11 13:53:02 by mde-laga         ###   ########.fr        #
+#    Updated: 2019/02/11 17:32:13 by mde-laga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC =	ft_printf.c \
 		ft_convd.c \
 		ft_convf.c \
 		ft_float.c \
+		ft_float2.c\
 		ft_convg.c \
 		ft_convi.c \
 		ft_convmb.c \
