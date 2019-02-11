@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 10:15:40 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/11 14:09:04 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 14:47:28 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static void	ft_rdr2(t_fl *fl, char *str, int i)
 {
 	if (str[i] >= '5' && str[i] <= '9')
 	{
+		if (i == 0)
+			fl->front++;
 		if (str[i - 1] == '9')
 		{
 			str[i - 1] = '0';

@@ -14,14 +14,14 @@ int main()
 	//long n = 1584756545680234;
 	//double n;
 	//long double n;
-	double n = 95.44857;
+	double n = -15.47297;
 	//n = 926585.15468L;
 
 
-	dprintf(1, " %d\n", ft_printf("%G\n"));
+	//mkedprintf(1, " %d\n", ft_printf("%G\n"));
 	//dprintf(1, " %d\n\n", dprintf(1, "  %#- 20.10f\t", n));
 
-/*	dprintf(1, "\n\n-----------------------------------------------\n\n");
+	dprintf(1, "\n\n-----------------------------------------------\n\n");
 	dprintf(1, "NORMAL\n\n\n");
 
 	dprintf(1, "-----------------------------------------------\n\n");
@@ -650,5 +650,5 @@ int main()
 	dprintf(1, " %d\n", ft_printf("  %#- 20.10f\t", n));
 	dprintf(1, " %d\n\n", dprintf(1, "  %#- 20.10f\t", n));
 	dprintf(1, "-----------------------------------------------\n\n");
-*/
+
 }
