@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convmf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 15:58:36 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/11 18:49:38 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/11 19:34:27 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void				ft_convmf(t_prin *prin)
 	if (!(fl = (t_fl *)malloc(sizeof(t_fl))))
 		ft_error(prin);
 	value = ft_getnb(prin);
-	value < 0 && (value *= -1) ? neg = 1 : 0;
+	neg = (value < 0 && (value *= -1) ? 1 : 0);
 	ft_separator(fl, value);
 	ft_normiser(fl, value);
 	mant = ft_mantiser(fl);

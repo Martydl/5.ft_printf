@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 15:58:36 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/11 18:49:46 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/11 19:46:24 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ static long double	ft_getnb(t_prin *prin)
 	long double ret;
 
 	ret = 0;
-	if (prin->flags == 0)
+	if (prin->flags == 0 || prin->flags == 3)
 		ret = va_arg(prin->ap, double);
 	if (prin->flags == 5)
 		ret = va_arg(prin->ap, long double);
+	printf("%Lf\n", ret);
 	return (ret);
 }
 
@@ -88,7 +89,7 @@ void				ft_convf(t_prin *prin)
 	if (!(fl = (t_fl *)malloc(sizeof(t_fl))))
 		ft_error(prin);
 	value = ft_getnb(prin);
-	value < 0 && (value *= -1) ? neg = 1 : 0;
+	neg = (value < 0 && (value *= -1) ? 1 : 0);
 	ft_separator(fl, value);
 	ft_normiser(fl, value);
 	mant = ft_mantiser(fl);
