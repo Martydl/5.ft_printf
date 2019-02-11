@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 15:58:36 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/11 14:08:48 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 17:24:50 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,25 +81,33 @@ static char			*ft_suffix(t_prin *prin, char *ret)
 	return (ret);
 }
 
-void				ft_convmf(t_prin *prin)
+void				ft_convf2(t_prin *prin, t_fl *fl, int neg)
+{
+	char	*ret;
+
+	ret = ft_strnew(0);
+	ret = ft_strjfree(ret, ft_lltoa(fl->front));
+	prin->preci || prin->hash ? ret = ft_strjfree(ret, ft_strdup(".")) : 0;
+	ret = ft_strjfree(ret, fl->opt);
+	ret = ft_strjfree(ft_prefix(prin, ret, neg), ret);
+	if (prin->min && prin->field > (int)ft_strlen(ret))
+		ret = ft_suffix(prin, ret);
+	prin->output = ft_strjfree(prin->output, ret);
+}
+
+void				ft_convf(t_prin *prin)
 {
 	t_fl		*fl;
-	char		*ret;
 	long double	value;
 	int			mant;
 	int			neg;
 
-	if (prin->preci == -1)
-		prin->preci = 6;
+	prin->preci == -1 ? prin->preci = 6 : 0;
 	if (!(fl = (t_fl *)malloc(sizeof(t_fl))))
 		ft_error(prin);
 	value = ft_getnb(prin);
 	neg = 0;
-	if (value < 0)
-	{
-		value *= -1;
-		neg = 1;
-	}
+	value < 0 && (value *= -1) ? neg = 1 : 0;
 	ft_separator(fl, value);
 	ft_normiser(fl, value);
 	ft_rounder(fl, prin->preci);
@@ -109,17 +117,7 @@ void				ft_convmf(t_prin *prin)
 	else if (mant == 2)
 		prin->output = ft_strjfree(prin->output, "NAN");
 	else
-	{
-		ret = ft_strnew(0);
-		ret = ft_strjfree(ret, ft_lltoa(fl->front));
-		if (prin->preci || prin->hash)
-			ret = ft_strjfree(ret, ft_strdup("."));
-		ret = ft_strjfree(ret, fl->opt);
-		ret = ft_strjfree(ft_prefix(prin, ret, neg), ret);
-		if (prin->min && prin->field > (int)ft_strlen(ret))
-			ret = ft_suffix(prin, ret);
-		prin->output = ft_strjfree(prin->output, ret);
-	}
+		ft_convf2(prin, fl, neg);
 	free(fl->sig);
 	free(fl->mant);
 	free(fl->expo);
