@@ -6,13 +6,13 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 10:15:40 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/11 10:55:10 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 13:20:46 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_rec(t_fl *fl, char *str, int i)
+static void	ft_rec(t_fl *fl, char *str, int i)
 {
 	if (i == 0)
 		fl->front++;
@@ -25,7 +25,7 @@ void	ft_rec(t_fl *fl, char *str, int i)
 		str[i - 1]++;
 }
 
-void	ft_rdr2(t_fl *fl, char *str, int i)
+static void	ft_rdr2(t_fl *fl, char *str, int i)
 {
 	if (str[i] >= '5' && str[i] <= '9')
 	{
@@ -108,6 +108,10 @@ void	ft_normiser(t_fl *fl, double value)
 	fl->sig = ft_convert_base(sig, "0123456789", "01");
 	fl->mant = ft_convert_base(mts, "0123456789", "01");
 	fl->expo = ft_convert_base(ex, "0123456789", "01");
+	free(sig);
+	free(ex);
+	free(mts);
+	free(k);
 }
 
 void	ft_separator(t_fl *fl, double value)
