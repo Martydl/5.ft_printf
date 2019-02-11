@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convb.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 09:17:41 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/11 09:47:47 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 18:57:35 by lramard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ void				ft_convb(t_prin *prin)
 		ft_error(prin);
 	if (prin->min && prin->field > (int)ft_strlen(ret))
 		ret = ft_suffix(prin, ret);
-	prin->ret += ft_strlen(ret);
 	if (!(prin->output = ft_strjfree(prin->output, ret)))
 		ft_error(prin);
 }

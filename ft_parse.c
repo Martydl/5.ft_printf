@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 11:38:25 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/11 13:40:01 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 19:09:45 by lramard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_v(t_prin *prin, char k)
+static void	ft_v(t_prin *prin, char k, int i)
 {
 	if (k == 'F')
 		prin->conv = 'F';
@@ -23,7 +23,11 @@ static void	ft_v(t_prin *prin, char k)
 	else if (k == 'G')
 		prin->conv = 'G';
 	else
+	{
 		prin->conv = ft_tolower(k);
+		prin->form[prin->z + i] = ft_tolower(k);
+	}
+
 }
 
 int			ft_counter(t_prin *prin)
@@ -44,7 +48,7 @@ int			ft_counter(t_prin *prin)
 		if (prin->form[prin->z + i] == converter[k])
 		{
 			(prin->form[prin->z + i] >= 65 && prin->form[prin->z + i] <= 90) ?
-				(ft_v(prin, prin->form[prin->z + i])) :
+				(ft_v(prin, prin->form[prin->z + i], i)) :
 					(prin->conv = converter[k]);
 			j = 1;
 		}

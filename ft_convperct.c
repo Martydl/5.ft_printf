@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convperct.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/10 15:01:55 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 22:06:09 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 18:57:35 by lramard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	ft_convperct(t_prin *prin)
 	if (prin->min)
 		while (--prin->field >= 0)
 			ret[i++] = ' ';
-	prin->ret += ft_strlen(ret);
 	if (!(prin->output = ft_strjfree(prin->output, ret)))
 		ft_error(prin);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:59:30 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/11 14:04:28 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 18:57:35 by lramard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void		ft_convp(t_prin *prin)
 	ret = ft_getstring(prin);
 	if ((uint64_t)prin->field > ft_strlen(ret))
 		ret = ft_add(prin, ret);
-	prin->ret += ft_strlen(ret);
 	if (!(prin->output = ft_strjfree(prin->output, ret)))
 		ft_error(prin);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convs.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 14:16:44 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 22:31:20 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 18:57:35 by lramard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void		ft_convs(t_prin *prin)
 	ret = ft_getstring(prin);
 	if (prin->field > (int)ft_strlen(ret))
 		ret = ft_add(prin, ret);
-	prin->ret += ft_strlen(ret);
 	if (!(prin->output = ft_strjfree(prin->output, ret)))
 		ft_error(prin);
 }

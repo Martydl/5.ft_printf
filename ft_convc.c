@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 12:22:21 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/10 21:56:45 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/11 18:57:35 by lramard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ void	ft_convc(t_prin *prin)
 	if (prin->min)
 		while (--prin->field >= 0)
 			ret[i++] = ' ';
-	prin->ret += ft_strlen(ret);
 	prin->output = ft_strjfree(prin->output, ret);
 }
