@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 12:22:21 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/11 18:57:35 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/12 18:56:25 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_convc(t_prin *prin)
 	int		i;
 
 	c = va_arg(prin->ap, int);
-	size = (ft_isprint(c) ? 1 : 0);
+	size = 1;
 	if (prin->field)
 		size += prin->field--;
 	if (!(ret = ft_strnew(size)))
@@ -29,7 +29,7 @@ void	ft_convc(t_prin *prin)
 	if (!prin->min)
 		while (--prin->field >= 0)
 			ret[i++] = ' ';
-	ft_isprint(c) ? ret[i++] = c : 0;
+	ret[i++] = c;
 	if (prin->min)
 		while (--prin->field >= 0)
 			ret[i++] = ' ';
