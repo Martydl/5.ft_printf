@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:26:00 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/12 11:28:33 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/12 11:33:41 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ static uint64_t	ft_getnb(t_prin *prin)
 	return (ret);
 }
 
-static int		ft_size(t_prin *prin, int nlen)
+static int		ft_size(t_prin *prin, int nlen, uint64_t nb)
 {
 	int size;
 
 	size = 0;
-	if (prin->hash && nlen >= prin->preci)
+	if (prin->hash && nlen >= prin->preci && nb != 0)
 		size++;
 	if (prin->preci > nlen)
 		size += prin->preci - nlen;
 	return (size);
 }
 
-static char		*ft_prefix(t_prin *prin, char *str)
+static char		*ft_prefix(t_prin *prin, char *str, uint64_t nb)
 {
 	char	*pre;
 	int		size;
@@ -50,7 +50,7 @@ static char		*ft_prefix(t_prin *prin, char *str)
 	int		i;
 
 	nlen = ft_strlen(str);
-	size = ft_size(prin, nlen);
+	size = ft_size(prin, nlen, nb);
 	if (!prin->min && prin->field > size + nlen && (prin->field -= size + nlen))
 		size += prin->field;
 	else if (!prin->min)
@@ -61,7 +61,7 @@ static char		*ft_prefix(t_prin *prin, char *str)
 	if (!prin->min && !prin->zero)
 		while (--prin->field >= 0)
 			pre[i++] = ' ';
-	if (prin->hash && nlen >= prin->preci)
+	if (prin->hash && nlen >= prin->preci && nb != 0)
 		pre[i++] = '0';
 	if ((!prin->min && prin->zero) || prin->preci)
 		while ((!prin->min && --prin->field >= 0) || --prin->preci - nlen >= 0)
@@ -98,7 +98,7 @@ void			ft_convo(t_prin *prin)
 		ret = ft_llutoa_base(nb, 8, 0);
 	else if (!(ret = ft_strnew(0)))
 		ft_error(prin);
-	if (!(ret = ft_strjfree(ft_prefix(prin, ret), ret)))
+	if (!(ret = ft_strjfree(ft_prefix(prin, ret, nb), ret)))
 		ft_error(prin);
 	if (prin->min && (prin->field > (int)ft_strlen(ret)))
 		ret = ft_suffix(prin, ret);
