@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 15:58:36 by lramard           #+#    #+#             */
-/*   Updated: 2019/02/11 19:46:24 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/12 10:43:43 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static long double	ft_getnb(t_prin *prin)
 		ret = va_arg(prin->ap, double);
 	if (prin->flags == 5)
 		ret = va_arg(prin->ap, long double);
-	printf("%Lf\n", ret);
 	return (ret);
 }
 
