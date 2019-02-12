@@ -6,7 +6,7 @@
 /*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:26:00 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/12 11:33:41 by mde-laga         ###   ########.fr       */
+/*   Updated: 2019/02/12 11:56:28 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static int		ft_size(t_prin *prin, int nlen, uint64_t nb)
 	int size;
 
 	size = 0;
-	if (prin->hash && nlen >= prin->preci && nb != 0)
+	if ((prin->hash && nlen >= prin->preci && nb != 0) ||
+			(prin->hash && prin->preci == 0 && nb == 0))
 		size++;
 	if (prin->preci > nlen)
 		size += prin->preci - nlen;
@@ -61,7 +62,8 @@ static char		*ft_prefix(t_prin *prin, char *str, uint64_t nb)
 	if (!prin->min && !prin->zero)
 		while (--prin->field >= 0)
 			pre[i++] = ' ';
-	if (prin->hash && nlen >= prin->preci && nb != 0)
+	if ((prin->hash && nlen >= prin->preci && nb != 0) ||
+			(prin->hash && prin->preci == 0 && nb == 0))
 		pre[i++] = '0';
 	if ((!prin->min && prin->zero) || prin->preci)
 		while ((!prin->min && --prin->field >= 0) || --prin->preci - nlen >= 0)
