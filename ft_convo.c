@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lramard <lramard@student42.fr>             +#+  +:+       +#+        */
+/*   By: mde-laga <mde-laga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/04 18:26:00 by mde-laga          #+#    #+#             */
-/*   Updated: 2019/02/11 18:57:35 by lramard          ###   ########.fr       */
+/*   Updated: 2019/02/12 11:28:33 by mde-laga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static uint64_t	ft_getnb(t_prin *prin)
 	if (prin->flags == 0)
 		ret = va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 1)
-		ret = (short)va_arg(prin->ap, uint32_t);
+		ret = (unsigned short)va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 2)
-		ret = (char)va_arg(prin->ap, uint32_t);
+		ret = (unsigned char)va_arg(prin->ap, uint32_t);
 	else if (prin->flags == 3)
 		ret = va_arg(prin->ap, uint64_t);
 	else if (prin->flags == 4)
